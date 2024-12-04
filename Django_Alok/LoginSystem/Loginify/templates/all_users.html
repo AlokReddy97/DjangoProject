@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All Users</title>
+</head>
+<body>
+    <h1>All Users</h1>
+    <ul>
+        {% for user in users %}
+            <li>
+                {{ user.username }} ({{ user.email }}) - 
+                <a href="{% url 'get_user_by_email' email=user.email %}">View</a> |
+                <a href="{% url 'update_user' email=user.email %}">Update</a> |
+                <a href="{% url 'delete_user' email=user.email %}">Delete</a>
+            </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
